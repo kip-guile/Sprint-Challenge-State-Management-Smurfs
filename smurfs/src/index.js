@@ -8,6 +8,7 @@ import App from "./components/App";
 import thunk from 'redux-thunk';
 
 
+
 const godReducer = combineReducers({
     smurfs: reducers.smurfReducer,
 })

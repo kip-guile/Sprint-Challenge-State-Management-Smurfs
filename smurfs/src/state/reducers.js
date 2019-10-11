@@ -1,9 +1,8 @@
 import * as types from './actionTypes';
-import { type } from 'os';
 
 const initialState = []
 export function smurfReducer(state = initialState, action){
-    switch(type.action){
+    switch(action.type){
         case types.ADD_DATA:
             return action.payload;
         default:

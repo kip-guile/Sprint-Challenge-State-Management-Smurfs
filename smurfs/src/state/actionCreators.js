@@ -1,5 +1,5 @@
-import * as types from './actionTypes';
 import axios from 'axios';
+import * as types from './actionTypes';
 
 export function get_smurfs(){
     return function(dispatch){
@@ -7,6 +7,7 @@ export function get_smurfs(){
         .then(response => {
             const smurfs = response.data;
             dispatch({type: types.ADD_DATA, payload: smurfs});
+            console.log(smurfs);
         })
     }
 }
