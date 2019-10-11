@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
+import axios from 'axios';
 
 export function Form({ formValues, changeInput }) {
   const onValueChange = event => {
@@ -9,7 +10,11 @@ export function Form({ formValues, changeInput }) {
 
   const onFormSubmit = event => {
     event.preventDefault();
+    let res = axios.post('http://localhost:3333/smurfs', formValues);
+
     alert(`submitting ${formValues.name}, ${formValues.age}, ${formValues.height}`);
+    
+    console.log(res);
   };
 
   return (
