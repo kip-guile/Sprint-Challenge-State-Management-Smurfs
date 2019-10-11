@@ -2,18 +2,6 @@ import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import * as creators from '../state/actionCreators';
 
-// export default function Smurf() {
-//     const smurfs = useSelector(state => state.smurfs)
-//     const dispatch = useDispatch()
-//         useEffect(() => {
-//             dispatch(creators.get_smurfs());
-//         }, [dispatch])
-
-
-//     return(
-//         <Village smurfs={smurfs}/>
-//     );
-// }
 
 export default function Smurf() {
     const quotes = useSelector(state => state.smurfs)

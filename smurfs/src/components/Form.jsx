@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
-import axios from 'axios';
 
-export function Form({ formValues, changeInput }) {
+
+
+
+export function Form({ formValues, dispatch }) {
+
   const onValueChange = event => {
-    changeInput(event.target);
+    dispatch(actionCreators.changeInput(event.target))
   };
 
   const onFormSubmit = event => {
     event.preventDefault();
-    let res = axios.post('http://localhost:3333/smurfs', formValues);
+        dispatch(actionCreators.onSubmit(formValues))
+};
 
-    alert(`submitting ${formValues.name}, ${formValues.age}, ${formValues.height}`);
-    
-    console.log(res);
-  };
+
 
   return (
     <form className='component' onSubmit={onFormSubmit}>
@@ -38,5 +39,4 @@ export function Form({ formValues, changeInput }) {
 
 export default connect(
   state => state,
-  actionCreators,
 )(Form);

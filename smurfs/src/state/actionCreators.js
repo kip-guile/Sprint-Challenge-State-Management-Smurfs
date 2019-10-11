@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as types from './actionTypes';
-import uuid from 'uuid';
 
 export function get_smurfs(){
     return function(dispatch){
@@ -21,4 +20,14 @@ export function changeInput(target) {
         value: target.value,
       },
     };
-  }
+}
+
+export function onSubmit(formValues){
+    return function(dispatch){
+        axios.post('http://localhost:3333/smurfs', formValues)
+        .then(response => {
+            const smurfs = response.data;
+            dispatch({type: types.ADD_DATA, payload: smurfs});
+        })
+    }
+}
