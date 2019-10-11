@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as types from './actionTypes';
+import uuid from 'uuid';
 
 export function get_smurfs(){
     return function(dispatch){
@@ -11,3 +12,13 @@ export function get_smurfs(){
         })
     }
 }
+
+export function changeInput(target) {
+    return {
+      type: types.ON_INPUT_CHANGE,
+      payload: {
+        name: target.name,
+        value: target.value,
+      },
+    };
+  }

@@ -9,3 +9,21 @@ export function smurfReducer(state = initialState, action){
             return state;
     }
 }
+
+const initialFormState = {
+    name: '',
+    age: 0,
+    height: '',
+  };
+  export function formReducer(state = initialFormState, action) {
+    switch (action.type) {
+      case types.ON_INPUT_CHANGE:
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
+        };
+      default:
+        return state;
+    }
+  }
+  

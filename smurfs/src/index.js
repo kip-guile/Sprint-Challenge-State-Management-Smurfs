@@ -6,11 +6,13 @@ import * as reducers from './state/reducers';
 import "./index.css";
 import App from "./components/App";
 import thunk from 'redux-thunk';
+import  Form from "./components/Form";
 
 
 
 const godReducer = combineReducers({
     smurfs: reducers.smurfReducer,
+    formValues: reducers.formReducer,
 })
 
 const store = createStore(
@@ -21,5 +23,6 @@ const store = createStore(
 ReactDOM.render(<>
 <Provider store={store}>
 <App />
+<Form/>
 </Provider>
 </>, document.getElementById("root"));
