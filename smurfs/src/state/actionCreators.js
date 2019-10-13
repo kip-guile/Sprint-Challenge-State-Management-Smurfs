@@ -7,7 +7,6 @@ export function get_smurfs(){
         .then(response => {
             const smurfs = response.data;
             dispatch({type: types.ADD_DATA, payload: smurfs});
-            console.log(smurfs);
         })
     }
 }
@@ -29,5 +28,28 @@ export function onSubmit(formValues){
             const smurfs = response.data;
             dispatch({type: types.ADD_DATA, payload: smurfs});
         })
+    }
+}
+
+export function putRequest({id, ...formValues}){
+    return function(dispatch){
+        axios.put(`http://localhost:3333/smurfs/${id}`, formValues)
+        .then(response => {
+            const smurfs = response.data;
+            dispatch({type: types.ADD_DATA, payload: smurfs});
+        })
+    }
+}
+
+export const prepopulate = (values) => {
+    return {
+        type: types.PREPOPULATE,
+        payload: values
+    }
+}
+
+export const resetForm = () => {
+    return {
+        type: types.ADD_FORM
     }
 }

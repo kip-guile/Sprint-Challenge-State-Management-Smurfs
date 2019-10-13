@@ -10,7 +10,6 @@ export default function Smurf() {
        dispatch(creators.get_smurfs());
       }, [dispatch]);
   
-      console.log(quotes);
   
       return (
         <Village smurfs={quotes}/>
@@ -20,11 +19,13 @@ export default function Smurf() {
 
 
 function Asmurf({smurf}){
+    const dispatch = useDispatch()
     return (
         <div>
             <h4>Hello, my name is {smurf.name}</h4>
             <p>I am {smurf.height}tall, that's awesome, right?</p>
             <p>I am pretty old though. {smurf.age} is a huuuge numberr</p>
+            <button onClick={() => dispatch(creators.prepopulate(smurf))}>edit</button>
         </div>
     );
 }

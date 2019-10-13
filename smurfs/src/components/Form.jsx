@@ -13,8 +13,14 @@ export function Form({ formValues, dispatch }) {
 
   const onFormSubmit = event => {
     event.preventDefault();
-        dispatch(actionCreators.onSubmit(formValues))
+        if (formValues.id !== null){
+            dispatch(actionCreators.putRequest(formValues))
+        } else {
+            dispatch(actionCreators.onSubmit(formValues))
+        }
 };
+
+
 
 
 
@@ -32,7 +38,9 @@ export function Form({ formValues, dispatch }) {
         <input value={formValues.height} onChange={onValueChange} name='height' />
       </label><br />
 
-      <input type='submit' />
+      <button type='submit'>Submit</button>
+
+      {/* <input type='submit' /> */}
     </form>
   );
 }

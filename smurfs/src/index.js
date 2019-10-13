@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./components/App";
 import thunk from 'redux-thunk';
 import  Form from "./components/Form";
+import logger from 'redux-logger';
 
 
 
@@ -17,7 +18,7 @@ const godReducer = combineReducers({
 
 const store = createStore(
     godReducer,
-    applyMiddleware(thunk)
+    applyMiddleware(logger, thunk)
 );
 
 ReactDOM.render(<>

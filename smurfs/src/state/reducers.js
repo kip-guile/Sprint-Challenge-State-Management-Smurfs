@@ -14,6 +14,7 @@ const initialFormState = {
     name: '',
     age: '',
     height: '',
+    id: null,
   };
   export function formReducer(state = initialFormState, action) {
     switch (action.type) {
@@ -22,6 +23,13 @@ const initialFormState = {
           ...state,
           [action.payload.name]: action.payload.value,
         };
+        case types.PREPOPULATE:
+          return {
+          ...action.payload
+        };
+        case types.ADD_DATA:
+        case types.ADD_FORM:
+          return initialFormState
       default:
         return state;
     }
